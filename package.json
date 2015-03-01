@@ -1,0 +1,15 @@
+{
+  "name": "jss-parser",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/parser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Josh Black <joshuatblack@ufl.edu>",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-babel": "^4.0.0"
+  }
+}
