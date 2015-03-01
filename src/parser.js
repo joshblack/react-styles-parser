@@ -1,16 +1,18 @@
 'use strict';
 
+import invariant from './vendor/invariant';
+
 function Parse(styles) {
   let lines = styles.split('\n')
-    .filter((l) => l)
-    .map((l) => l.trim());
+    .map((l) => l.trim())
+    .filter((l) => l);
 
   let obj = {};
   let ruleNames = [];
 
   lines.forEach(function (line) {
     if (line.includes('{')) {
-      let ruleName = line.slice(0, line.length - 1).trim();
+      let ruleName = line.replace(/{/, '').trim();
       ruleNames.push(ruleName);
 
       _touch(obj, ...ruleNames);
@@ -19,11 +21,19 @@ function Parse(styles) {
       ruleNames.pop();
     }
     else {
+      invariant(
+        line.includes(':'),
+        'Property definitions should be separated by a colon'
+      );
+
+      invariant(
+        line.endsWith(';'),
+        'Property definitions should end with a semicolon'
+      )
+
       let [prop, def] = line.split(':').map((l) => l.trim());
       let rule = obj[ruleNames[0]];
-
-      // Remove semicolon
-      def = def.slice(0, def.length - 1);
+      def = def.replace(/;/, '');
 
       for (let i = 1; i < ruleNames.length; i++) {
         rule = rule[ruleNames[i]];

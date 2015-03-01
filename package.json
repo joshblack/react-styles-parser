@@ -1,15 +1,34 @@
 {
-  "name": "jss-parser",
+  "name": "react-styles-parser",
   "version": "0.0.1",
-  "description": "",
-  "main": "dist/parser.js",
+  "description": "Parser for writing pretty styles in React Styles",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "testFileExtensions": [
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshblack/react-styles-parser"
   },
   "author": "Josh Black <joshuatblack@ufl.edu>",
-  "license": "ISC",
   "devDependencies": {
+    "babel-jest": "^4.0.0",
+    "del": "^1.1.1",
     "gulp": "^3.8.11",
-    "gulp-babel": "^4.0.0"
+    "gulp-babel": "^4.0.0",
+    "jest-cli": "^0.4.0"
+  },
+  "dependencies": {
+    "core-js": "^0.6.1"
   }
 }
