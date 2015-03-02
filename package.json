@@ -1,6 +1,6 @@
 {
   "name": "react-styles-parser",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Parser for writing pretty styles in React Styles",
   "main": "index.js",
   "scripts": {

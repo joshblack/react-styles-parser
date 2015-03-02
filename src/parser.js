@@ -5,7 +5,8 @@ import invariant from './vendor/invariant';
 function Parse(styles) {
   let lines = styles.split('\n')
     .map((l) => l.trim())
-    .filter((l) => l);
+    .filter((l) => l)
+    .filter((l) => !l.includes('use strict'));
 
   let obj = {};
   let ruleNames = [];

@@ -11,6 +11,8 @@ function Parse(styles) {
     return l.trim();
   }).filter(function (l) {
     return l;
+  }).filter(function (l) {
+    return !l.includes("use strict");
   });
 
   var obj = {};
